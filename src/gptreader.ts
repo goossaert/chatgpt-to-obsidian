@@ -4,11 +4,6 @@ import * as moment from 'moment';
 import * as yaml from 'js-yaml';
 import matter from 'gray-matter';
 
-const PREFIX = '/Users/manu/Documents/Obsidian\ Vault/_sources';
-const FOLDER_CONVERSATIONS = `${PREFIX}/output/conv`;
-const FOLDER_YOUTUBE_TRANSCRIPTS = `${PREFIX}/output/yt-transcript`;
-const FOLDER_YOUTUBE_SUMMARIES = `${PREFIX}/output/yt-summaries`;
-
 // Define a type for our URL-to-filepath dictionary.
 interface URLMap {
   [url: string]: string;
@@ -24,8 +19,12 @@ if (args.length === 0) {
 }
 
 const filePath = path.resolve(args[0]);
-const chatgptid = process.argv.slice(3);
 
+
+const PREFIX = process.argv.slice(3);
+const FOLDER_CONVERSATIONS = `${PREFIX}/output/conv`;
+const FOLDER_YOUTUBE_TRANSCRIPTS = `${PREFIX}/output/yt-transcript`;
+const FOLDER_YOUTUBE_SUMMARIES = `${PREFIX}/output/yt-summaries`;
 
 
 
@@ -244,7 +243,6 @@ function readConversations(file: string) {
    //conversations.forEach((conversation: any, index: number) => {
   for (let index = 0; index < conversations.length; index++) {
       let conversation = conversations[index];
-      //if (chatgptid && conversation.id != chatgptid) continue;
 
       var category = undefined;
       if (conversation.title) {
@@ -553,8 +551,6 @@ function readConversations(file: string) {
       saveFileWithVersionCheck(url, conversationFilePath, outputConversation.join('\n'));
     }
 
-    //console.log("isYoutubeTranscript", isYoutubeTranscript);
-    //if (!chatgptid) break;
   }
   //});
 
