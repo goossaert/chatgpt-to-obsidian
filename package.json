@@ -1,0 +1,25 @@
+{
+  "name": "json-slicer",
+  "version": "1.0.0",
+  "description": "A Node.js project to read a JSON file and write the first 500 entries in pretty print mode",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "gptreader": "node dist/gptreader.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^20.17.16",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "moment": "^2.30.1"
+  }
+}
